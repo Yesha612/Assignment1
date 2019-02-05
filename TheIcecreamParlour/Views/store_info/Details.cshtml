@@ -1,0 +1,67 @@
+﻿@model TheIcecreamParlour.Models.store_info
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>store_info</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.store_info1.StoreName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.store_info1.StoreName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StoreName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StoreName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FlavourID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlavourID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Flavour)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Flavour)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.StoreLocationId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,51 @@
+﻿@model TheIcecreamParlour.Models.icecream
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>icecream</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Flavour)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Flavour)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Calories)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Calories)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gluten_Free)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gluten_Free)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dairy_Free)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dairy_Free)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FlavourID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
