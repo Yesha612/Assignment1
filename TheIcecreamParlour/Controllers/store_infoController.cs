@@ -17,7 +17,7 @@ namespace TheIcecreamParlour.Controllers
         // GET: store_info
         public ActionResult Index()
         {
-            var store_info = db.store_info.Include(s => s.store_info1);
+            var store_info = db.store_info.Include(s => s.icecream);
             return View(store_info.ToList());
         }
 
@@ -39,7 +39,7 @@ namespace TheIcecreamParlour.Controllers
         // GET: store_info/Create
         public ActionResult Create()
         {
-            ViewBag.StoreLocationId = new SelectList(db.store_info, "StoreLocationId", "StoreName");
+            ViewBag.FlavourID = new SelectList(db.icecreams, "FlavourID", "Flavour");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace TheIcecreamParlour.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.StoreLocationId = new SelectList(db.store_info, "StoreLocationId", "StoreName", store_info.StoreLocationId);
+            ViewBag.FlavourID = new SelectList(db.icecreams, "FlavourID", "Flavour", store_info.FlavourID);
             return View(store_info);
         }
 
@@ -73,7 +73,7 @@ namespace TheIcecreamParlour.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.StoreLocationId = new SelectList(db.store_info, "StoreLocationId", "StoreName", store_info.StoreLocationId);
+            ViewBag.FlavourID = new SelectList(db.icecreams, "FlavourID", "Flavour", store_info.FlavourID);
             return View(store_info);
         }
 
@@ -90,7 +90,7 @@ namespace TheIcecreamParlour.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.StoreLocationId = new SelectList(db.store_info, "StoreLocationId", "StoreName", store_info.StoreLocationId);
+            ViewBag.FlavourID = new SelectList(db.icecreams, "FlavourID", "Flavour", store_info.FlavourID);
             return View(store_info);
         }
 

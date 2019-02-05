@@ -33,9 +33,9 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.FlavourID, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.FlavourID, "FlavourID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.FlavourID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownList("FlavourID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.FlavourID, "", new { @class = "text-danger" })
             </div>
         </div>

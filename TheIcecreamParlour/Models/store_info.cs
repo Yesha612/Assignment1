@@ -30,8 +30,6 @@ namespace TheIcecreamParlour.Models
         [StringLength(50)]
         public string City { get; set; }
 
-        public virtual store_info store_info1 { get; set; }
-
-        public virtual store_info store_info2 { get; set; }
+        public virtual icecream icecream { get; set; }
     }
 }

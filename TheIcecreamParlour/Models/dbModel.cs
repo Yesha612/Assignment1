@@ -21,6 +21,11 @@ namespace TheIcecreamParlour.Models
                 .Property(e => e.Flavour)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<icecream>()
+                .HasMany(e => e.store_info)
+                .WithRequired(e => e.icecream)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<store_info>()
                 .Property(e => e.StoreName)
                 .IsUnicode(false);
@@ -36,10 +41,6 @@ namespace TheIcecreamParlour.Models
             modelBuilder.Entity<store_info>()
                 .Property(e => e.City)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<store_info>()
-                .HasOptional(e => e.store_info1)
-                .WithRequired(e => e.store_info2);
         }
     }
 }
