@@ -12,7 +12,7 @@ namespace TheIcecreamParlour.Controllers
 {
     public class icecreamsController : Controller
     {
-        private dbModel db = new dbModel();
+        private DbModel db = new DbModel();
 
         // GET: icecreams
         public ActionResult Index()

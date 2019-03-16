@@ -5,9 +5,9 @@ namespace TheIcecreamParlour.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class dbModel : DbContext
+    public partial class DbModel : DbContext
     {
-        public dbModel()
+        public DbModel()
             : base("name=DefaultConnection")
         {
         }
@@ -28,10 +28,6 @@ namespace TheIcecreamParlour.Models
 
             modelBuilder.Entity<store_info>()
                 .Property(e => e.StoreName)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<store_info>()
-                .Property(e => e.Flavour)
                 .IsUnicode(false);
 
             modelBuilder.Entity<store_info>()

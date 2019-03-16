@@ -9,18 +9,14 @@ namespace TheIcecreamParlour.Models
     public partial class store_info
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int StoreLocationId { get; set; }
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Store Name")]
         public string StoreName { get; set; }
 
         public int FlavourID { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string Flavour { get; set; }
 
         [Required]
         [StringLength(50)]

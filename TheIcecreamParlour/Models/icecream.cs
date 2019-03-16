@@ -16,7 +16,6 @@ namespace TheIcecreamParlour.Models
         }
 
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int FlavourID { get; set; }
 
         [Required]

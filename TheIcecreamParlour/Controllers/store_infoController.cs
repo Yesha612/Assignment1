@@ -12,7 +12,7 @@ namespace TheIcecreamParlour.Controllers
 {
     public class store_infoController : Controller
     {
-        private dbModel db = new dbModel();
+        private DbModel db = new DbModel();
 
         // GET: store_info
         public ActionResult Index()
@@ -48,7 +48,7 @@ namespace TheIcecreamParlour.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "StoreLocationId,StoreName,FlavourID,Flavour,Address,City")] store_info store_info)
+        public ActionResult Create([Bind(Include = "StoreLocationId,StoreName,FlavourID,Address,City")] store_info store_info)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace TheIcecreamParlour.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "StoreLocationId,StoreName,FlavourID,Flavour,Address,City")] store_info store_info)
+        public ActionResult Edit([Bind(Include = "StoreLocationId,StoreName,FlavourID,Address,City")] store_info store_info)
         {
             if (ModelState.IsValid)
             {
