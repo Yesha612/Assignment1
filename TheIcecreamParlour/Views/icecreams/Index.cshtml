@@ -7,9 +7,13 @@
 
 <h2>Ice Cream</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@if (User.Identity.IsAuthenticated)
+{
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+}
+
 <table class="table">
     <tr>
         <th>
@@ -41,12 +45,16 @@
         <td>
             @Html.DisplayFor(modelItem => item.Dairy_Free)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.FlavourID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.FlavourID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.FlavourID })
-        </td>
-    </tr>
+        
+        @if (User.Identity.IsAuthenticated)
+        {
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.FlavourID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.FlavourID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.FlavourID })
+            </td>
+        }
+        </tr>
 }
 
 </table>
