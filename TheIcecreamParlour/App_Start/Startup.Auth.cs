@@ -6,6 +6,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
+using Owin.Security.Providers.GitHub;
 using TheIcecreamParlour.Models;
 
 namespace TheIcecreamParlour
@@ -64,6 +65,10 @@ namespace TheIcecreamParlour
                 ClientId = ConfigurationManager.AppSettings["GoogleClientId"],
                 ClientSecret = ConfigurationManager.AppSettings["GoogleClientSecret"]
             });
+
+            app.UseGitHubAuthentication(
+                clientId: ConfigurationManager.AppSettings["GithubClientId"],
+                clientSecret: ConfigurationManager.AppSettings["GithubClientSecret"]);
         }
     }
 }
