@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Icecreams</h2>
+<h2 style="font-family: 'Old English Text MT' ">Icecreams</h2>
 
 @if (User.Identity.IsAuthenticated)
 {
@@ -13,7 +13,7 @@
         @Html.ActionLink("Create New", "Create")
     </p>
 }
-    <table class="table">
+    <table class="table table-hover table-striped">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Flavour)
