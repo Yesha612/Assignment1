@@ -401,7 +401,9 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DbModel.cs" />
     <Compile Include="Models\icecream.cs" />
+    <Compile Include="Models\IDataIcecreams.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\IMockIcecreams.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\store_info.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

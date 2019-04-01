@@ -12,12 +12,27 @@ namespace TheIcecreamParlour.Controllers
 {
     public class icecreamsController : Controller
     {
-        private DbModel db = new DbModel();
+        //private DbModel db = new DbModel();
+
+        IMockIcecreams db;
+
+        //constructors
+        // default constructor
+
+        public icecreamsController()
+        {
+            this.db = new IDataIcecreams();
+        }
+
+        public icecreamsController(IDataIcecreams mockdb)
+        {
+            this.db = mockdb;
+        }
 
         // GET: icecreams
         public ActionResult Index()
         {
-            return View(db.icecreams.ToList());
+            return View("Index", db.icecreams.ToList());
         }
 
         // GET: icecreams/Details/5
@@ -27,7 +42,8 @@ namespace TheIcecreamParlour.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            icecream icecream = db.icecreams.Find(id);
+            //icecream icecream = db.icecreams.Find(id);
+            icecream icecream = db.icecreams.SingleOrDefault(i => i.FlavourID == id);
             if (icecream == null)
             {
                 return HttpNotFound();
@@ -50,8 +66,9 @@ namespace TheIcecreamParlour.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.icecreams.Add(icecream);
-                db.SaveChanges();
+                //db.icecreams.Add(icecream);
+                //db.SaveChanges();
+                db.Save(icecream);
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +82,8 @@ namespace TheIcecreamParlour.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            icecream icecream = db.icecreams.Find(id);
+            //icecream icecream = db.icecreams.Find(id);
+            icecream icecream = db.icecreams.SingleOrDefault(i => i.FlavourID == id);
             if (icecream == null)
             {
                 return HttpNotFound();
@@ -82,8 +100,9 @@ namespace TheIcecreamParlour.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(icecream).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(icecream).State = EntityState.Modified;
+                //db.SaveChanges();
+                db.Save(icecream);
                 return RedirectToAction("Index");
             }
             return View(icecream);
@@ -96,7 +115,8 @@ namespace TheIcecreamParlour.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            icecream icecream = db.icecreams.Find(id);
+            //icecream icecream = db.icecreams.Find(id);
+            icecream icecream = db.icecreams.SingleOrDefault(i => i.FlavourID == id);
             if (icecream == null)
             {
                 return HttpNotFound();
@@ -109,9 +129,11 @@ namespace TheIcecreamParlour.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            icecream icecream = db.icecreams.Find(id);
-            db.icecreams.Remove(icecream);
-            db.SaveChanges();
+            //icecream icecream = db.icecreams.Find(id);
+            icecream icecream = db.icecreams.SingleOrDefault(i => i.FlavourID == id);
+            //db.icecreams.Remove(icecream);
+            //db.SaveChanges();
+            db.Delete(icecream);
             return RedirectToAction("Index");
         }
 
