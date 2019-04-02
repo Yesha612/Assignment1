@@ -24,7 +24,7 @@ namespace TheIcecreamParlour.Controllers
             this.db = new IDataIcecreams();
         }
 
-        public icecreamsController(IDataIcecreams mockdb)
+        public icecreamsController(IMockIcecreams mockdb)
         {
             this.db = mockdb;
         }
@@ -48,13 +48,13 @@ namespace TheIcecreamParlour.Controllers
             {
                 return HttpNotFound();
             }
-            return View(icecream);
+            return View("Details", icecream);
         }
 
         // GET: icecreams/Create
         public ActionResult Create()
         {
-            return View();
+            return View("Create");
         }
 
         // POST: icecreams/Create
@@ -72,7 +72,7 @@ namespace TheIcecreamParlour.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View(icecream);
+            return View("Create",icecream);
         }
 
         // GET: icecreams/Edit/5
@@ -88,7 +88,7 @@ namespace TheIcecreamParlour.Controllers
             {
                 return HttpNotFound();
             }
-            return View(icecream);
+            return View("Edit",icecream);
         }
 
         // POST: icecreams/Edit/5
@@ -105,7 +105,7 @@ namespace TheIcecreamParlour.Controllers
                 db.Save(icecream);
                 return RedirectToAction("Index");
             }
-            return View(icecream);
+            return View("Edit",icecream);
         }
 
         // GET: icecreams/Delete/5
@@ -121,7 +121,7 @@ namespace TheIcecreamParlour.Controllers
             {
                 return HttpNotFound();
             }
-            return View(icecream);
+            return View("Delete", icecream);
         }
 
         // POST: icecreams/Delete/5
